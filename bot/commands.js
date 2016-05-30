@@ -1534,14 +1534,14 @@ var commands = {
     },
     "ratefegt": {
 		shouldDisplay: false,
-        desc: "Tatsu-chan judges you.",
+        desc: "Nepacon judges you.",
         usage: "<someone>",
 		cooldown: 4,
         deleteCommand: true,
 		process: function(bot, msg, suffix) {
             if (!suffix) //catch if empty
 			{
-				bot.sendMessage(msg.channel, "Don't be a baka "+msg.author.name+"! Please specify a user!");
+				bot.sendMessage(msg.channel, "I'm sorry "+msg.author.name+"! I don't know the person you're talking about!");
 			}
             else
             {
@@ -1549,31 +1549,31 @@ var commands = {
                 var toSend = [];
                 if(rating == 0)
                 {
-                    toSend.push("Tatsu-chan believes **"+suffix+"** will become a fegt soon enough ("+rating+"%)");
+                    toSend.push("Nepacon believes **"+suffix+"** will become a fegt soon enough ("+rating+"%)");
                 }
                 else if(rating < 10)
                 {
-                    toSend.push("Tatsu-chan thinks that **"+suffix+"** may have mild fegt tendencies ("+rating+"%)");
+                    toSend.push("Nepacon thinks that **"+suffix+"** may have mild fegt tendencies ("+rating+"%)");
                 }
                 else if(rating < 30)
                 {
-                    toSend.push("Tatsu-chan senses the fegt in **"+suffix+"** ("+rating+"%)");
+                    toSend.push("Nepacon senses the fegt in **"+suffix+"** ("+rating+"%)");
                 }
                 else if(rating < 50)
                 {
-                    toSend.push("Tatsu-chan calculates that the inner fegt in **"+suffix+"** has not completely taken over ("+rating+"%)");
+                    toSend.push("Nepacon calculates that the inner fegt in **"+suffix+"** has not completely taken over ("+rating+"%)");
                 }
                 else if(rating < 70)
                 {
-                    toSend.push("Tatsu-chan dons protective gear. **"+suffix+"** is infected with fegt ("+rating+"%)");
+                    toSend.push("Nepacon dons protective gear. **"+suffix+"** is infected with fegt ("+rating+"%)");
                 }
                 else if(rating < 90)
                 {
-                    toSend.push("Tatsu-chan is evacuating several internets away from **"+suffix+"**! ("+rating+"%)");
+                    toSend.push("Nepacon is evacuating several internets away from **"+suffix+"**! ("+rating+"%)");
                 }
                 else
                 {
-                    toSend.push("Tatsu-chan has lost all hope in humanity as **"+suffix+"** has turned into a pure fegt! ("+rating+"%)");
+                    toSend.push("Nepacon has lost all hope in humanity as **"+suffix+"** has turned into a pure fegt! ("+rating+"%)");
                 }
                 
                 bot.sendMessage(msg.channel, toSend);
@@ -1615,7 +1615,7 @@ var commands = {
 					else if (body.code == "error:url"){
 						var linkKeyword = body.url.keyword;
 						bot.sendMessage(msg, ":page_facing_up:" + msg.author + " your shortened URL has been sent to your inbox!");
-						bot.sendMessage(msg.author, "*Baka!* Your link already exists! Here it is: " + "http://frid.li/" + body.url.keyword);
+						bot.sendMessage(msg.author, "Um, sorry! Your link already exists! Here it is: " + "http://frid.li/" + body.url.keyword);
 					}
 					//If link contains reserved words
 					else if (body.code == "error:keyword"){
@@ -1645,7 +1645,7 @@ var commands = {
 				var options = {
 					url: 'https://haveibeenpwned.com/api/v2/breachedaccount/' + suffix,
 					headers: {
-						'User-Agent': 'Tatsu-chan Discordapp Chat Bot'
+						'User-Agent': 'Nepacon discordapp Chat Bot'
 					}
 				};
 			
