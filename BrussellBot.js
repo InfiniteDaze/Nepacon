@@ -83,7 +83,7 @@ bot.on("message", msg => {
 	if (msg.author.id == bot.user.id) return;
 	if (msg.channel.isPrivate) {
 		if (/(^https?:\/\/discord\.gg\/[A-Za-z0-9]+$|^https?:\/\/discordapp\.com\/invite\/[A-Za-z0-9]+$)/.test(msg.content))
-			bot.sendMessage(msg.author, "**Tatsu-chan invite link: ** <https://discordapp.com/oauth2/authorize?&client_id=" + config.app_id + "&scope=bot&permissions=12659727> \n*Oh goodness! You want me on your server?* :flushed:");
+			bot.sendMessage(msg.author, "**Nepacon invite link: ** <https://discordapp.com/oauth2/authorize?&client_id=" + config.app_id + "&scope=bot&permissions=12659727> \n*Oh goodness! You want me on your server?* :flushed:");
 		else if (msg.content[0] !== config.command_prefix && msg.content[0] !== config.mod_command_prefix && !msg.content.startsWith('(eval) ')) {
 			if (pmCoolDown.hasOwnProperty(msg.author.id)) {
 				if (Date.now() - pmCoolDown[msg.author.id] > 3000) {
@@ -282,7 +282,7 @@ bot.on("serverCreated", server => {
 			toSend.push("Hey! I'm **" + bot.user.username.replace(/@/g, '@\u200b') + "**");
 			toSend.push("You can use **`" + config.command_prefix + "help`** to see what I am capable of.");
 			toSend.push("Mod/Admin commands *including bot settings* can be viewed with **`" + config.mod_command_prefix + "help`**");
-			toSend.push("For help & info go to **<http://tatsumaki.friday.cafe>**");
+			toSend.push("For help & info go to **Kazuhira!**");
 			toSend.push("*Thank you for inviting me here!*");
 			bot.sendMessage(server.defaultChannel, toSend);
 			db.addServer(server);
