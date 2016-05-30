@@ -47,7 +47,7 @@ bot.on("debug", m=>{ if (debug) console.log(cDebug(" DEBUG ") +  " " + m); });
 
 bot.on("ready", () => {
 	bot.setPlayingGame(games[Math.floor(Math.random() * (games.length))]);
-	console.log(cGreen("TatsuBot is ready!") + " Listening to " + bot.channels.length + " channels on " + bot.servers.length + " servers");
+	console.log(cGreen("I'm ready for action!") + " Listening to " + bot.channels.length + " channels on " + bot.servers.length + " servers");
 	versioncheck.checkForUpdate();
 	setTimeout(()=>{db.checkServers(bot)},10000);
 	remind.checkReminders(bot);
@@ -83,7 +83,7 @@ bot.on("message", msg => {
 	if (msg.author.id == bot.user.id) return;
 	if (msg.channel.isPrivate) {
 		if (/(^https?:\/\/discord\.gg\/[A-Za-z0-9]+$|^https?:\/\/discordapp\.com\/invite\/[A-Za-z0-9]+$)/.test(msg.content))
-			bot.sendMessage(msg.author, "**Tatsu-chan invite link: ** <https://discordapp.com/oauth2/authorize?&client_id=" + config.app_id + "&scope=bot&permissions=12659727> \n*I-I-Its not like I want to join your server or anything!* :flushed:");
+			bot.sendMessage(msg.author, "**Tatsu-chan invite link: ** <https://discordapp.com/oauth2/authorize?&client_id=" + config.app_id + "&scope=bot&permissions=12659727> \n*Oh goodness! You want me on your server?* :flushed:");
 		else if (msg.content[0] !== config.command_prefix && msg.content[0] !== config.mod_command_prefix && !msg.content.startsWith('(eval) ')) {
 			if (pmCoolDown.hasOwnProperty(msg.author.id)) {
 				if (Date.now() - pmCoolDown[msg.author.id] > 3000) {
@@ -179,7 +179,7 @@ function execCommand(msg, cmd, suffix, type) {
 				else {
 					var now = Date.now();
 					if (now < lastExecTime[cmd][msg.author.id] + (commands.commands[cmd].cooldown * 1000)) {
-						bot.sendMessage(msg, msg.author.username.replace(/@/g, '@\u200b') + ", you need to *cooldown* (" + Math.round(((lastExecTime[cmd][msg.author.id] + commands.commands[cmd].cooldown * 1000) - now) / 1000) + " seconds)", (e, m)=>{ bot.deleteMessage(m, {"wait": 6000}); });
+						bot.sendMessage(msg, msg.author.username.replace(/@/g, '@\u200b') + ", I think you need a break.* (" + Math.round(((lastExecTime[cmd][msg.author.id] + commands.commands[cmd].cooldown * 1000) - now) / 1000) + " seconds)", (e, m)=>{ bot.deleteMessage(m, {"wait": 6000}); });
 						if (!msg.channel.isPrivate) bot.deleteMessage(msg, {"wait": 10000});
 						return;
 					} lastExecTime[cmd][msg.author.id] = now;
@@ -283,7 +283,7 @@ bot.on("serverCreated", server => {
 			toSend.push("You can use **`" + config.command_prefix + "help`** to see what I am capable of.");
 			toSend.push("Mod/Admin commands *including bot settings* can be viewed with **`" + config.mod_command_prefix + "help`**");
 			toSend.push("For help & info go to **<http://tatsumaki.friday.cafe>**");
-			toSend.push("*I-Its not like I wanted to be here! I was j-just told to!*");
+			toSend.push("*Thank you for inviting me here!*");
 			bot.sendMessage(server.defaultChannel, toSend);
 			db.addServer(server);
 			db.addServerToTimes(server);
