@@ -141,7 +141,7 @@ var aliases = {
 	"cat": "catfacts", "meow": "catfacts", "neko": "catfacts",
 	"imgur": "image", "im": "image",
 	"feed": "rss", "stream":"rss",
-	"tatsu": "about",
+	"nepacon": "about",
 	"cat": "catfacts", "meow": "catfacts", "neko": "catfacts", "sakamotofacts": "catfacts",
 	"r": "ratewaifu", "rate": "ratewaifu", "waifu": "ratewaifu",
 	"short": "shorten", "shrt": "shorten",
@@ -191,10 +191,10 @@ var commands = {
 		}
 	},
 	"server": {
-		desc: "Get a link to Tatsumaki-chan's support server.",
+		desc: "Ask for help!.",
 		cooldown: 10, usage: "",
 		process: function(bot, msg) { 
-			bot.sendMessage(msg, ":wrench: Looking for support? My support channel is here: **https://discord.gg/0xyZL4m5TyYTzVGY**\n\n :house_with_garden: My official residence (Private SEA-region social group): **http://discord.friday.cafe**"); }
+			bot.sendMessage(msg, ":wrench: Looking for support? Go ask Kaz!"); }
 	},
 	"reverse": {
 		desc: "Returns the input backwards",
@@ -244,7 +244,7 @@ var commands = {
 		desc: "About me",
 		deleteCommand: true, cooldown: 10, usage: "",
 		process: function(bot, msg) {
-			bot.sendMessage(msg, ":id: **I'm Tatsumaki-chan!**\n:black_small_square: **My Authors:** Brussell, David, Edgar, Henry\n:black_small_square: **My Artist:** Foneza\n:black_small_square: **Library:** Discord.js\n:black_small_square: **Version:** " + version + "\n:black_small_square: **Official Support:** https://discord.gg/0xyZL4m5TyYTzVGY\n:black_small_square: **Info and Commands:** Use `" + config.command_prefix + "help` for a list of my commands!\n" + ":black_small_square: **My Home**: http://www.friday.cafe");
+			bot.sendMessage(msg, "Hello there! My name is Nepacon! I was built from the scraps of another bot so if things seem weird for a while then please tell Kaz and he'll try to fix it!");
 		}
 	},
 	"dice": {
@@ -871,7 +871,7 @@ var commands = {
 								+ charas[0].chara_imgurl);
 							}
 							else{
-								bot.sendMessage(msg, "I-I-Its not my fault your waifu or husbando couldn't be found! Blame the MAL database!");
+								bot.sendMessage(msg, "I'm sorry your waifu or husbando couldn't be found! I-It appears to not be in the MAL database.");
 							}
 							
 						}
